@@ -1,0 +1,161 @@
+body {
+  font-size: 17px;
+  font-weight: 400;
+  font-family: "Helvetica","Arial",sans-serif;
+  background-color: #313360;
+  font-style: normal;
+  text-align: center;
+  margin: 0;
+  padding: 0
+}
+
+table {
+  table-layout: fixed;
+  width: 100%
+}
+
+th {
+  background-color: #9d9c8f !important;
+  color: #fff !important;
+  text-align: center !important;
+  font-size: 2vw;
+}
+
+td {
+  height: 50px;
+}
+
+table button {
+  align-items: center;
+  background-color: #4b4c74 !important;
+  color: #fff !important;
+  width: 100%;
+  height: 100%;
+  border: none;
+  font-size: 3vw;
+  cursor: pointer;
+  transition:opacity .2s
+}
+
+button:hover {
+  opacity:.67;
+  transition:opacity .2s
+}
+
+header {
+  width: 100%;
+  height: 35px;
+  padding: 5px 0;
+  background-color: #17194c;
+  display: flex;
+  justify-content: space-evenly;
+  position: sticky;
+  top: 0
+}
+
+header a:hover {
+  opacity:.67
+}
+
+footer {
+  background: linear-gradient(to bottom, transparent, #fff);
+  position: fixed;
+  left: 1%;
+  right: 1%;
+  bottom: 0
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #010334 !important;
+    color: #fff !important;
+  }
+
+  footer {
+    background: linear-gradient(to bottom, transparent, #010334) !important;
+  }
+
+  textarea {
+    background-color: #010334 !important;
+  }
+
+  .carousel-item h3 {
+    color: #fff !important;
+  }
+}
+
+a:hover {
+  color: #bfaf53 !important;
+}
+
+footer {
+  background: linear-gradient(to bottom, transparent, #fff);
+  position: fixed;
+  left: 1%;
+  right: 1%;
+  bottom: 0
+}
+
+form {
+  margin-top: 20px;
+}
+
+legend {
+  font-weight: bold;
+}
+
+textarea {
+  background-color: #fff;
+  resize: none !important;
+  width: 100%;
+  height: 75px;
+  padding: 10px;
+  border: none;
+}
+
+.container {
+  display: flex;
+}
+
+.carousel-item {
+  cursor: pointer;
+}
+
+.carousel-item h3 {
+  opacity: 0;
+  transition:opacity .2s;
+}
+
+.carousel-item:hover h3 {
+  opacity: 1;
+  transition:opacity .2s;
+}
+
+.d-flex {
+  color: #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.d-flex a {
+  color: #ccc !important;
+}
+
+.d-flex a:hover {
+  color: #bfaf53 !important;
+  transition: color .2s;
+}
+
+.navbar {
+  background-color: #17194c;
+}
+
+.navbar-brand,
+.nav-link {
+  color: #fff !important;
+}
+
+#logout:hover {
+  color: red !important;
+}

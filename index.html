@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ログイン - SupporTOYO</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@latest/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      text-align: center;
+      animation: backgroundAnimation 30s linear infinite;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.3);
+      z-index: -1;
+    }
+
+    @keyframes backgroundAnimation {
+      0% {
+        background-image: url("https://t4.ftcdn.net/jpg/02/24/63/49/240_F_224634909_OL8t2rMHcFGqh3Fy15UzNUJKZd1j5cAK.jpg");
+      }
+
+      25% {
+        background-image: url("https://t3.ftcdn.net/jpg/05/46/48/64/240_F_546486456_DuVSnZTBAh0iUgaufeZdyXZBYFm8pibt.jpg");
+      }
+
+      50% {
+        background-image: url("https://t4.ftcdn.net/jpg/01/32/28/67/240_F_132286775_9Hh4pl1us6dqPFkWGUAoMur2qlKhud6t.jpg");
+      }
+
+      100% {
+        background-image: url("https://t4.ftcdn.net/jpg/01/44/42/91/240_F_144429143_QRQXzbKvKZrAkFs7VYpSRQxLSoxTXCJo.jpg");
+      }
+    }
+
+    @media (prefers-color-scheme: dark) {
+      p {
+        color: #ccc !important;
+      }
+
+      .card {
+        background-color: #17194c;
+        color: #fff !important;
+      }
+
+      footer {
+        background: linear-gradient(to bottom, transparent, #4b4c74) !important;
+      }
+    }
+
+    a:hover {
+      text-decoration: none;
+      color: #bfaf53;
+      transition: 0.2s;
+    }
+
+    footer {
+      background: linear-gradient(to bottom, transparent, #fff);
+      position: fixed;
+      left: 1%;
+      right: 1%;
+      bottom: 0
+    }
+
+    .btn-primary {
+      width: 100%;
+    }
+
+    .card {
+      color: #17194c;
+      width: 60vw;
+      padding: 20px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .d-flex {
+      color: #ccc;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .d-flex a {
+      color: #ccc !important;
+    }
+
+    .d-flex a:hover {
+      color: #bfaf53 !important;
+      transition: color .2s;
+    }
+  </style>
+</head>
+
+<body>
+  <form id="myform" class="card" data-url="locker.html">
+    <div class="mb-4">
+      <h1 class="display-4">SupporTOYO</h1>
+      <p id="greet"></p>
+    </div>
+    <div class="input-group mb-3">
+      <input type="text" id="iniad-id" class="form-control" placeholder="ユーザー名" required />
+      <span class="input-group-text">@iniad.org</span>
+    </div>
+    <div class="input-group mb-3">
+      <input type="password" id="iniad-pw" class="form-control" placeholder="パスワード" required />
+    </div>
+    <div>
+      <button type="submit" class="btn btn-primary">ログイン</button>
+    </div>
+  </form>
+  <footer class="fixed-bottom">
+    <div class="d-flex">
+      <p>Feedback:</p>
+      <ul class="list-unstyled d-flex">
+        <li class="ms-3"><a class="link-body-emphasis" href="https://forms.gle/dbb8emrPqtBHif1u7"><i
+              class="fa-brands fa-google"></i></a></li>
+        <li class="ms-3"><a class="link-body-emphasis" href="https://forms.gle/dbb8emrPqtBHif1u7"><i
+              class="fa-brands fa-instagram"></i></a></li>
+        <li class="ms-3"><a class="link-body-emphasis" href="https://forms.gle/dbb8emrPqtBHif1u7"><i
+              class="fa-brands fa-x-twitter"></i></a></li>
+      </ul>
+    </div>
+  </footer>
+  <script src="https://code.jquery.com/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>
+    document
+      .getElementById("myform")
+      .addEventListener("submit", function (e) {
+        e.preventDefault();
+        sessionStorage.setItem(
+          "iniad-id",
+          document.getElementById("iniad-id").value
+        );
+        sessionStorage.setItem(
+          "iniad-pw",
+          document.getElementById("iniad-pw").value
+        );
+        const url = this.dataset.url;
+        location.href = url;
+      });
+    const greetings = ["おはようございます", "こんにちは", "こんばんは"];
+    const greet = greetings[Math.floor((new Date().getHours() - 4) / 7)];
+    document.getElementById("greet").textContent = greet;
+  </script>
+</body>
+
+</html>
