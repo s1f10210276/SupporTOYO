@@ -40,12 +40,13 @@ function callLockerPositionAPI(url, method, userid, userpw, callback) {
       });
     },
     error: function (xhr, status, error) {
+      document.getElementById('open').disabled = true;
       if (xhr.status === 503) {
         callback({
           status: 'success',
           description: 'ロッカーを開くには、INIAD Wi-Fiを使用してください。',
-          lockerAddress: "--",
-          lockerFloor: "--"
+          lockerAddress: null,
+          lockerFloor: null
         });
       } else {
         let err = JSON.parse(xhr.responseText);
@@ -64,7 +65,11 @@ function callLockerPositionAPI(url, method, userid, userpw, callback) {
 function getLockerPosition() {
   let url = BASE_URL + '/locker';
     callLockerPositionAPI(url, 'GET', userid, userpw, function(result) {
-    document.getElementById('result').textContent = result.lockerFloor + result.lockerAddress + '番地のロッカー前で操作してください。';
+      if (result.lockerAddress == null) {
+        document.getElementById('result').textContent = result.description
+      } else {
+        document.getElementById('result').textContent = result.lockerFloor + result.lockerAddress + '番地のロッカー前で操作してください。';
+      }
   });
 }
 document.addEventListener('DOMContentLoaded', function() {
