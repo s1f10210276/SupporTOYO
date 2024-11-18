@@ -42,9 +42,13 @@ button:hover {
   transition:opacity .2s
 }
 
-a:hover {
+a {
   color: #3c8dbc !important;
-  transition: color .2s;
+}
+
+a:hover {
+  opacity:.67;
+  transition:opacity .2s
 }
 
 form {
@@ -82,12 +86,7 @@ legend {
   }
 
   a {
-    color: #ccc !important;
-  }
-
-  a:hover {
     color: #bfaf53 !important;
-    transition: color .2s;
   }
 
   .navbar {
